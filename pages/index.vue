@@ -37,6 +37,18 @@
         show: false
       }
     },
+    head() {
+      return {
+        title: "Υπολογισμός διατροφής σκύλου",
+        meta: [
+          {
+            hid: 'description',
+            name: 'description',
+            content: 'Home page description'
+          }
+        ]
+      }
+    },
     methods: {
       onSubmit(event){
         event.preventDefault()
