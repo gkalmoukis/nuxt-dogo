@@ -1,37 +1,20 @@
 <template>
 <div class="mt-3 content">
-
     <div class="d-flex justify-content-center">
-
-      <b-form @reset="onReset" @submit="onSubmit">
-                
-        <input 
-          type="number"
-          step="1" 
-          v-model="kg" 
-          class="question" 
-          id="input-kg" 
-          required 
-          autocomplete="off" />
+      <b-form @reset="onReset" @submit="onSubmit">          
+        <input v-model="kg" type="number" step="1" class="question" id="input-kg" autocomplete="off" required/> 
         <label for="input-kg">
           <span>Βάρος του σκύλου σας (kg)</span>
-        </label>
-
-        <input 
-          type="number"
-          step="0.1" 
-          v-model="percentange" 
-          class="question" 
-          id="input-percentange" 
-          required 
-          autocomplete="off" />
+        </label>   
+           
+        <input v-model="percentange" type="number" step="0.1" class="question" id="input-percentange" autocomplete="off" required/> 
         <label for="input-percentange">
           <span>Ποσοστό σωματικού βάρους (%)</span>
-        </label>
-        
+        </label>   
         
         <button type="submit" class="fill">Υπολογισμός</button>
         <button type="reset" class="fill">Απο την αρχή</button>
+
       </b-form>
     </div>
 
@@ -48,8 +31,8 @@
     layout: 'app',
      data() {
       return {
-        kg: 32,
-        percentange : 2.5 ,
+        kg: "",
+        percentange : "" ,
         result : "",
         show: false
       }
@@ -58,14 +41,14 @@
       onSubmit(event){
         event.preventDefault()
         this.show = true
-        this.result =  ( this.kg * (this.percentange/100) ) * 10 * 10 * 10
+        this.result = ( this.kg * (this.percentange/100) ) * 10 * 10 * 10
       },
       onReset(event) {
         event.preventDefault()
-        this.kg = 32;
-        this.show = false;
-        this.percentange = 2.5;
+        this.kg = "";        
+        this.percentange = "";
         this.result = "";
+        this.show = false;
       }
     }
   }
@@ -73,12 +56,11 @@
 
 <style>
 .result-container {
-  --color : #ffe54c;
+  --color : hsl(51, 100%, 35%);
   font-size: 2rem;
   color: var(--color);
   padding-top: 1rem;
 }
-
 
 button {
   margin: 50px;
@@ -115,7 +97,6 @@ button {
   left: 0px;
 }
 /* End of Fill Button  */
-
 
 input,
 span,
